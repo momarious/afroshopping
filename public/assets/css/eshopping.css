@@ -1,0 +1,12 @@
+.eshop-navbar, .eshop-navbar a {
+    color: #fff;
+}
+
+.ehop-footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #dfeaff;
+    padding-top: 25px;
+}
