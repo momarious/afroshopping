@@ -38,7 +38,7 @@
             </ul>
             <div class="eshop-navbar">
                 {% if app.user %}
-                    <a href="{{ path('account') }}">Mon compte <small>{{ app.user.firstname }}</small></a>
+                    <a href="{{ path('account') }}">Bonkour {{ app.user.firstname }} !</a>
                     <a href="{{ path('app_logout') }}">Déconnexion</a>
                 {% else %}
                     <a href="{{ path('app_login') }}">Connexion</a>
