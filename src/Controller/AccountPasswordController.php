@@ -27,8 +27,6 @@ class AccountPasswordController extends AbstractController
     public function index(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
         $notification = null;
-
-
         $user = $this->getUser();
         $form = $this->createForm(ChangePasswordType::class, $user);
 
