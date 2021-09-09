@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon panier{% endblock %}
+
+{% block content %}
+
+    <h1>Mon panier <i class="fas fa-shopping-cart"></i></h1>
+    Retrouvez l'ensemble des produits que vous avez ajouter
+    <br>
+    <br>
+    {% if cart | length > 0 %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Produit</th>
+                <th scope="col"></th>
+                <th scope="col">Quantite</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set total = null %}
+            {% for item in cart %}
+                <tr>
+                    <th>
+                        <img src="/uploads/{{ item.product.illustration }}" alt="{{ item.product.name }}" height="65px">
+                    </th>
+                    <td>{{ item.product.name }}<br>
+                        <small>{{ item.product.subtitle }}</small>
+                    </td>
+                    <td>
+                        <a href="{{ path('decrease_to_cart', {'id': item.product.id}) }}"><i class="fas fa-minus"></i></a>
+                        {{ item.quantity }}
+                        <a href="{{ path('add_to_cart', {'id': item.product.id}) }}"><i class="fas fa-plus"></i></a>
+                    </td>
+                    <td>{{ (item.product.price/100) | number_format(2, ',', '.') }} €</td>
+                    <td>{{ (item.product.price*item.quantity/100) | number_format(2, ',', '.') }} €</td>
+                    <td><a href="{{ path('remove_to_cart', {'id': item.product.id}) }}"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% set total = total + (item.product.price*item.quantity) %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <b>Nombre de produits: {{ cart | length }}</b> <br>
+            <b>Total de mon panier: {{ (total/100) | number_format(2, ',', '.') }} €</b>
+            <a href="" class="btn btn-success btn-block">Valider mon panier</a>
+        </div>
+
+    {% else %}
+        <hr>
+        <p><b>Votre panier est vide</b></p>
+    {% endif %}
+
+{% endblock %}

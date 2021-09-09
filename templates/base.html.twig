@@ -10,6 +10,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -38,13 +40,14 @@
             </ul>
             <div class="eshop-navbar">
                 {% if app.user %}
-                    <a href="{{ path('account') }}">Bonkour {{ app.user.firstname }} !</a>
-                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    <a href="{{ path('account') }}">Bonjour {{ app.user.firstname }}!</a>
+                    <a  class="pl-3"href="{{ path('app_logout') }}">Déconnexion</a>
                 {% else %}
                     <a href="{{ path('app_login') }}">Connexion</a>
-                    <a href="{{ path('register') }}">Inscription</a>
+                    <a  class="pl-3" href="{{ path('register') }}">Inscription</a>
                 {% endif %}
             </div>
+            <a href="{{ path('cart') }}" class="pl-3"><i class="fas fa-shopping-cart"></i></a>
         </div>
     </nav>
 </header>
@@ -124,10 +127,10 @@
     </div><!-- /.container -->
 
     <!-- FOOTER -->
-    <footer class="eshop-footer">
-        <p>&copy; 2017-2020 Afroshopping <br> <small>La boutique 100% made in France</small> <br> <a href="#">Privacy</a>
-            &middot; <a href="#">Terms</a></p>
-    </footer>
+{#    <footer class="eshop-footer">#}
+{#        <p>&copy; 2017-2020 Afroshopping <br> <small>La boutique 100% made in France</small> <br> <a href="#">Privacy</a>#}
+{#            &middot; <a href="#">Terms</a></p>#}
+{#    </footer>#}
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
