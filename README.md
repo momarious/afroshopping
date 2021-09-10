@@ -1,11 +1,12 @@
 ## Application de vente en ligne
 
 Fonctionnalités pricipales:
+** Utilisateur
 * Panier
 * Commande
 * Choix de l'adresse de livraison
 * Choix du transporteur
-* * Partie admin
+** Partie admin
 * Gestion des produits et de categories
 * Gestion des utilisateurs
 * Gestion de la livraison
