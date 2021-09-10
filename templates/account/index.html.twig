@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Afroshopping - Mon compte{% endblock %}
+{% block title %}Mon compte{% endblock %}
 
 {% block content %}
 <h1>Mon compte </h1>
@@ -8,8 +8,8 @@
     <hr>
     <ul>
         <li><a href="{{ path('account_password') }}">Modifier mon mot de passe</a> </li>
-        <li><a href="http://"></a>Ajouter mes adresses</li>
-        <li><a href="http://"></a>Commander</li>
+        <li><a href="{{ path('account_address') }}">Gerer mes adresses</a></li>
+        <li><a href="http://">Commander</a></li>
     </ul>
 
 {% endblock %}
