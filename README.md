@@ -6,7 +6,7 @@ Fonctionnalités pricipales:
 * Commande
 * Choix de l'adresse de livraison
 * Choix du transporteur
-- Partie admin
+- Admin
 * Gestion des produits et de categories
 * Gestion des utilisateurs
 * Gestion de la livraison
