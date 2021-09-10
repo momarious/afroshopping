@@ -16,7 +16,7 @@ Fonctionnalités pricipales:
 
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
-* [Symfony](https://symfony.com)
+* [Symfony](https://symfony.com) - EasyAdmin
 * [MySQL](https://www.mysql.com)
 
 ### Pré-requis
