@@ -1,6 +1,7 @@
 body {
     position: relative;
 }
+
 .eshop-navbar, .eshop-navbar a {
     color: #fff;
 }
@@ -41,4 +42,20 @@ body {
 
 .eshop-single-product-price {
     font-size: 19px;
+}
+
+.form-check {
+    background-color: #f4f8ff;
+    padding: 20px 65px;
+    margin-top: 7px;
+}
+
+.col-form-label{
+    font-weight: bold;
+}
+
+.eshop-order-summary {
+    background-color: #f4f8ff;
+    padding: 20px;
+    margin-top: 22px;
 }
