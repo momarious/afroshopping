@@ -16,7 +16,7 @@ Fonctionnalités pricipales:
 
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
-* [Symfony](https://symfony.com) - EasyAdmin
+* [Symfony](https://symfony.com) - [EasyAdmin](https://easycorp.github.io/blog/) 
 * [MySQL](https://www.mysql.com)
 
 ### Pré-requis
@@ -27,5 +27,5 @@ Fonctionnalités pricipales:
 ### Installation
 
    ```sh
-   git clone https://github.com/momarious/e-shopping.git
+   git clone https://github.com/momarious/afroshopping.git
    ```
