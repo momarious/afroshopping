@@ -6,6 +6,7 @@ Fonctionnalités pricipales:
 * Commande
 * Choix de l'adresse de livraison
 * Choix du transporteur
+* Paiement 
 - Admin
 * Gestion des produits et de categories
 * Gestion des utilisateurs
@@ -16,7 +17,7 @@ Fonctionnalités pricipales:
 
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
-* [Symfony](https://symfony.com) - [EasyAdmin](https://easycorp.github.io/blog/) 
+* [Symfony](https://symfony.com) - [EasyAdmin](https://easycorp.github.io/blog/)  - [Stripe](https://stripe.com/fr-us)
 * [MySQL](https://www.mysql.com)
 
 ### Pré-requis
