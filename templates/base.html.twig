@@ -17,6 +17,9 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/eshopping.css') }}" rel="stylesheet">
 
+    {% block javascript %}  {% endblock %}
+
+
 </head>
 <body>
 <header>
@@ -29,7 +32,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('products') }}">Nos produits <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ path('products') }}">Nos produits <span
+                                class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Qui sommes-nous ?<span class="sr-only">(current)</span></a>
@@ -41,10 +45,10 @@
             <div class="eshop-navbar">
                 {% if app.user %}
                     <a href="{{ path('account') }}">Bonjour {{ app.user.firstname }}!</a>
-                    <a  class="pl-3"href="{{ path('app_logout') }}">Déconnexion</a>
+                    <a class="pl-3" href="{{ path('app_logout') }}">Déconnexion</a>
                 {% else %}
                     <a href="{{ path('app_login') }}">Connexion</a>
-                    <a  class="pl-3" href="{{ path('register') }}">Inscription</a>
+                    <a class="pl-3" href="{{ path('register') }}">Inscription</a>
                 {% endif %}
             </div>
             <a href="{{ path('cart') }}" class="pl-3"><i class="fas fa-shopping-cart"></i></a>
@@ -127,12 +131,15 @@
     </div><!-- /.container -->
 
     <!-- FOOTER -->
-{#    <footer class="eshop-footer">#}
-{#        <p>&copy; 2017-2020 Afroshopping <br> <small>La boutique 100% made in France</small> <br> <a href="#">Privacy</a>#}
-{#            &middot; <a href="#">Terms</a></p>#}
-{#    </footer>#}
+    {# <footer class="eshop-footer"> #}
+    {# <p>&copy; 2017-2020 Afroshopping <br> <small>La boutique 100% made in France</small> <br> <a href="#">Privacy</a> #}
+    {# &middot; <a href="#">Terms</a></p> #}
+    {# </footer> #}
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+{% block script %} {% endblock %}
+
 </body>
+
 </html>

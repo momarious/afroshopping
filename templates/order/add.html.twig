@@ -2,6 +2,8 @@
 
 {% block title %}Valider ma commande{% endblock %}
 
+{% block javascript %} <script src="https://js.stripe.com/v3/"></script> {% endblock %}
+
 {% block content %}
 
     <h1>Recapitilatif de la commande✅</h1>
@@ -21,7 +23,7 @@
             </div>
         </div>
         <div class="col-md-6">
-                <strong>Ma commande</strong> <br>
+            <strong>Ma commande</strong> <br>
             <div class="eshop-order-summary">
                 {% set total = null %}
                 {% for item in cart %}
@@ -48,7 +50,43 @@
             <strong>Livraison: </strong> {{ (carrier.price) | number_format(2, ',', '.') }} €<br>
             <hr>
             <strong>Total: </strong> {{ ((total/100)+(carrier.price)) | number_format(2, ',', '.') }} €
-            <a href="" class="btn btn-success btn-block mt-3">Payer {{ ((total/100)+(carrier.price)) | number_format(2, ',', '.') }} €</a>
+            <a id="checkout-button"
+               class="btn btn-success btn-block mt-3">Payer {{ ((total/100)+(carrier.price)) | number_format(2, ',', '.') }}
+                €</a>
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var stripe = Stripe('pk_test_51JYW6fIyWISoWdIjJXptMZcKOR8ZfyHf3rGXgHNo3BITstDYqqZpIva0JzS2jYWe9HYga4RkQyzsBrA0tVf4OAiy00fXWyuVue');
+        var checkoutButton = document.getElementById('checkout-button');
+
+        checkoutButton.addEventListener('click', () => {
+
+            fetch('/order/create-session/{{ reference }}', {
+                method: "POST"
+            })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((session) => {
+                    if (session.error == 'order') {
+                        window.loginForm.replace('{{ path('order') }}')
+                    } else {
+                        stripe.redirectToCheckout({
+                            sessionId: session.id
+                        });
+                    }
+                })
+                .then((result) => {
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error("error", error);
+                });
+        });
+    </script>
 {% endblock %}

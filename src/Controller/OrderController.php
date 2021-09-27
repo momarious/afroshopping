@@ -6,10 +6,8 @@ use App\Classe\Cart;
 use App\Entity\Order;
 use App\Entity\OrderDetails;
 use App\Form\OrderType;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -72,6 +70,7 @@ class OrderController extends AbstractController
             $delivery_content .= '<br/>' . $delivery->getPhone();
 
             $order = new Order();
+            $order->setReference($date->format('dmY') . '-' . uniqid());
             $order->setUser($this->getUser());
             $order->setCraetedAt($date);
             $order->setCarriername($carriers->getName());
@@ -88,19 +87,21 @@ class OrderController extends AbstractController
                 $orderDetails->setQuantity($item['quantity']);
                 $orderDetails->setPrice($item['product']->getPrice());
                 $orderDetails->setTotal($item['product']->getPrice() * $item['quantity']);
-
                 $this->entityManager->persist($orderDetails);
             }
+
             $this->entityManager->flush();
+
+            return $this->render('order/add.html.twig', [
+                'cart' => $cart->getCart(),
+                'carrier' => $carriers,
+                'delivery' => $delivery_content,
+                'reference' => $order->getReference()
+            ]);
+
         }
 
-        return $this->render('order/add.html.twig', [
-            'cart' => $cart->getCart(),
-            'carrier' => $carriers,
-            'delivery' => $delivery_content
-        ]);
-
-        $this->redirectToRoute('cart');
+        return $this->redirectToRoute('cart');
     }
 
 
